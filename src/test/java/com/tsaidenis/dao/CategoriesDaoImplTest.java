@@ -37,9 +37,45 @@ void prepare(){
     }
     @Test
     void del(){
-        categoriesDao.create(new Categories("asd",10L));
-        categoriesDao.create(new Categories("asd",11L));
-        categoriesDao.create(new Categories("qwe",15L));
+        categoriesDao.create(new Categories("Категория1",10L));
+        categoriesDao.create(new Categories("Категория2",11L));
+        categoriesDao.create(new Categories("Категория3",15L));
         List<Categories>categories = categoriesDao.findAll();
+        System.out.println(categories);
+        Categories categories1 = categories.get(0);
+        categoriesDao.delete(categories1);
+        List<Categories>result = categoriesDao.findAll();
+        System.out.println(result);
+
+    }
+    @Test
+    void findByName(){
+        categoriesDao.create(new Categories("Шорты",10L));
+        categoriesDao.create(new Categories("Рубаха",11L));
+        categoriesDao.create(new Categories("Чай",15L));
+        Categories categories1 = categoriesDao.findByName("Чай");
+        assertEquals("Чай",categories1.getName());
+
+    }
+
+    @Test
+    void findAll(){
+        categoriesDao.create(new Categories("Шорты",10L));
+        categoriesDao.create(new Categories("Рубаха",11L));
+        categoriesDao.create(new Categories("Чай",15L));
+        List<Categories>categories = categoriesDao.findAll();
+
+        assertEquals(3,categories.size());
+
+    }
+    @Test
+    void update(){
+        categoriesDao.create(new Categories("Шорты",10L));
+        List<Categories> list = categoriesDao.findAll();
+        Categories categories = list.get(0);
+        categories.setName("Новые Шорты");
+        categoriesDao.update(categories);
+        Categories updated = categoriesDao.findById(categories.getId());
+        assertEquals("Новые Шорты",updated.getName());
     }
 }

@@ -13,5 +13,6 @@ public interface CategoriesDao {
 
     void create(Categories categories);
     void deleteAll();
-//    Categories findByName(String name);
+    Categories findByName(String name);
+    void update(Categories categories);
 }
