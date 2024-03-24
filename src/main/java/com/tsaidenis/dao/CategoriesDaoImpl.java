@@ -63,8 +63,13 @@ public class CategoriesDaoImpl implements CategoriesDao {
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 
             session.beginTransaction();
-            Query query = session.createQuery("delete from Categories ", Categories.class);
+            Query query = session.createNativeQuery("DELETE FROM categories", Categories.class);
             query.executeUpdate();
+//            CriteriaBuilder builder = session.getCriteriaBuilder();
+//            CriteriaDelete<Categories> criteria = builder.createCriteriaDelete(Categories.class);
+//            criteria.from(Categories.class);
+//            session.createQuery(criteria).executeUpdate();
+
         }
     }
 

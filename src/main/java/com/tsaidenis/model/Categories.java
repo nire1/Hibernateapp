@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-@NamedQuery(name = "Categories.byName", query = "SELECT a FROM Categories a order by a.name asc")
+//@NamedQuery(name = "Categories.byName", query = "SELECT a FROM Categories a order by a.name asc")
 @Data
 @Entity
 @EqualsAndHashCode(exclude = "amount",callSuper = true)

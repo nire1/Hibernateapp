@@ -1,7 +1,6 @@
 package com.tsaidenis.dao;
 
 import com.tsaidenis.model.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CategoriesDaoImplTest {
-    ProductDaoImpl productDao = new ProductDaoImpl();
+    ProductsDaoImpl productDao = new ProductsDaoImpl();
     CategoriesDaoImpl categoriesDao = new CategoriesDaoImpl();
 @BeforeEach
 void prepare(){
